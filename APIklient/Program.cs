@@ -10,7 +10,7 @@ namespace APIklient
     {
       RestClient client = new RestClient("https://pokeapi.co/api/v2/");
 
-      RestRequest request = new RestRequest("pokemon/grejsimojs");
+      RestRequest request = new RestRequest("pokemon/bulbasaur");
       IRestResponse response = client.Get(request);
 
       Console.WriteLine(response.StatusCode);
@@ -19,7 +19,9 @@ namespace APIklient
       {
         Pokemon thePokemon = JsonConvert.DeserializeObject<Pokemon>(response.Content);
 
-        Console.WriteLine(thePokemon.name);
+        // Console.WriteLine($"Pokemon: {thePokemon.Name} - XP: {thePokemon.BaseExperience}");
+
+        Console.WriteLine(thePokemon.Abilities[1].Name);
       }
 
 
